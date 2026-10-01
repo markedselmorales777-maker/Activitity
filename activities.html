@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ventus Learning Hub - Activities</title>
+  <link rel="stylesheet" href="activities.css">
+  <script src="https://cdn.jsdelivr.net/pyodide/v0.26.1/full/pyodide.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <button class="back" onclick="location.href='course.html'">Back to course</button>
+    <nav class="steps" id="steps" aria-label="Tasks"></nav>
+    <span class="status" id="status">Loading Python…</span>
+    <span class="user">Mark Edsel Morales</span>
+    <a class="logout" href="index.html">Logout</a>
+  </header>
+
+  <main class="workspace" id="workspace">
+    <section class="pane editor-pane">
+      <div class="pane-title">main.py</div>
+      <div id="editor"></div>
+    </section>
+
+    <div class="splitter" id="splitter" role="separator" aria-orientation="vertical"></div>
+
+    <section class="pane side-pane">
+      <article class="task">
+        <p class="task-count" id="task-count"></p>
+        <h2 id="task-title"></h2>
+        <p id="task-desc"></p>
+        <p class="hint" id="task-hint"></p>
+      </article>
+
+      <div class="console-bar">
+        <button id="run" disabled>Run and check</button>
+        <span>Console</span>
+      </div>
+      <pre class="console" id="console">Output appears here.</pre>
+      <p class="feedback" id="feedback" role="status"></p>
+      <button class="next" id="next" hidden>Next task</button>
+    </section>
+  </main>
+
+  <!-- Passed screen -->
+  <section class="overlay" id="passed" hidden>
+    <div class="card">
+      <div class="leaf" aria-hidden="true"></div>
+      <h1>Congratulations, Mark Morales</h1>
+      <p>You passed the activities.</p>
+      <button id="to-song">Next</button>
+    </div>
+  </section>
+
+  <!-- Song screen: Centered video overlay -->
+  <section class="overlay song" id="song" hidden>
+    <video id="audio" src="song.mp4" controls playsinline preload="auto"></video>
+  </section>
+
+  <script src="activities.js"></script>
+</body>
+</html>
